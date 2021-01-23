@@ -31,7 +31,7 @@ class StudentArray
 
   # with switch case
   def check_marks_by_use_case
-    @@class_student.each do |stud|
+    @@class_student.map do |stud|
    	 if stud[:name] == name
    	 	marks = stud[:marks] 
    	 	case marks
@@ -46,6 +46,24 @@ class StudentArray
   	    end
   	 end	
    end
+  end
+
+  # update percentage
+  def update_percentage
+    @@class_student.each do |stud|
+      stud[:percentage] = (stud[:marks]*100)/100
+    end
+  end
+
+  # Calculate the first n prime numbers. Skip if the number ends with 7
+  def calculate_prime(n)
+  	prime_array = []
+  	value = 1
+  	while prime_array.length < n do
+     prime_array.push(value) if value % 2 != 0 && value % 10 != 7
+     value = value+1
+    end
+   return prime_array
   end
 
 end
