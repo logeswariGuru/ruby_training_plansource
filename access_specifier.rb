@@ -21,10 +21,13 @@ end
 # square sub class
 class Square < Polygon
   def initialize(area)
-    @area_value = area
+    super
   end
   def area
     p "area #{@area_value}from square class"
+    # accessing private and protected method of parent class
+    area_private
+    area_protected
   end
 
   def self.info
@@ -50,7 +53,8 @@ end
 p = Polygon.new(10)
 p.area
 # p.area
-s = Square.new(10)
+s = Square.new(20)
+s.area
 Square.info
 # s.area
 
